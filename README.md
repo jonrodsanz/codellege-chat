@@ -12,7 +12,7 @@ Run the command:
 npm start
  ~~~
 
-- Dependencies:
+### Dependencies:
   - nodejs:
     - socket.io
     - express

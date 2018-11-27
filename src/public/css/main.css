@@ -46,3 +46,12 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   background: #555; 
 }
+
+p.single-message > img {
+  width: 100%;
+  cursor: pointer;
+}
+
+.clicked {
+  background-color: rgb(28, 161, 68) !important;
+}
