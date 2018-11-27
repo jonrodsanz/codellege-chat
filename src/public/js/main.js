@@ -15,7 +15,7 @@ $(function () {
   $messageForm.submit((e) => {
     e.preventDefault();
     if($messageBox.val() !== ""){
-      if(flag === true && ($messageBox.val().split("")[0] === "h")){
+      if(flag === true && ($messageBox.val().split("")[0] === "h") || ($messageBox.val().split("")[0] === "d")){
         sentMessage = "<img src='" + $messageBox.val() +"' />"
       }
       else {
