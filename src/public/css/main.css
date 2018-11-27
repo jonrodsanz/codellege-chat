@@ -1,0 +1,48 @@
+body {
+  /* background: #e52d27;  /* fallback for old browsers */
+  /* background: -webkit-linear-gradient(to right, #b31217, #e52d27);  /* Chrome 10-25, Safari 5.1-6 */
+  /* background: linear-gradient(to right, #b31217, #e52d27); W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background-image: url(https://res.cloudinary.com/karl-tech/image/upload/v1504037663/ethereum-coffee-roach_aajijn.jpg);
+  /* background-size: cover; */
+}
+
+.card-body {
+  height: 60vh;
+  overflow-y: scroll;
+}
+
+
+.single-message::before {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 4px 8px 4px 0;
+  border-color: transparent #007bff transparent transparent;
+}
+
+.single-message {
+  background: steelblue;
+  padding: 10px;
+  border-radius: 10px;
+  display: inline-block;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}
