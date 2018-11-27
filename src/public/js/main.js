@@ -14,14 +14,16 @@ $(function () {
   // events
   $messageForm.submit((e) => {
     e.preventDefault();
-    if(flag){
-      sentMessage = "<img src='" + $messageBox.val() +"' />"
+    if($messageBox.val() !== ""){
+      if(flag){
+        sentMessage = "<img src='" + $messageBox.val() +"' />"
+      }
+      else {
+        sentMessage = $messageBox.val();
+      }
+      socket.emit("send message", sentMessage)
+      $messageBox.val("")
     }
-    else {
-      sentMessage = $messageBox.val();
-    }
-    socket.emit("send message", sentMessage)
-    $messageBox.val("")
   })
 
   $imageBtn.click(() => {
