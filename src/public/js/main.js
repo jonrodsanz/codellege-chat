@@ -16,7 +16,7 @@ $(function () {
     e.preventDefault();
     if($messageBox.val() !== ""){
       let protocol = $messageBox.val().split(":")[0]
-      if(flag === true && protocol === "http" || protocol === "data" || protocol === "https"){
+      if(flag === true && (protocol === "http" || protocol === "data" || protocol === "https")){
         sentMessage = "<img src='" + $messageBox.val() +"' />"
       }
       else {
