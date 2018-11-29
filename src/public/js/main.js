@@ -36,14 +36,14 @@ $(function () {
 
   $("#color-1").click(() => {
     root.style.setProperty("--msg-color","steelblue")
-    $("#users-box").css("background","var(--msg-color)")
-    $("#users-box").css("color","white")
+    // $("#users-box").css("background","var(--msg-color)")
+    // $("#users-box").css("color","white")
   })
 
   $("#color-2").click(() => {
     root.style.setProperty("--msg-color","#dc3545")
-    $("#users-box").css("background","var(--msg-color)")
-    $("#users-box").css("color","white")
+    // $("#users-box").css("background","var(--msg-color)")
+    // $("#users-box").css("color","white")
   })
   // operationals variables
   let sentMessage = $messageBox.val();
