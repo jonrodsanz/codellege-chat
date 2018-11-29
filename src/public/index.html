@@ -22,28 +22,54 @@
     <a href="" class="navbar-brand mx-auto">&lt/&gt Codellege Chat</a>
   </nav>
 
-  <div class="container text-white">
-    <div class="col-md-6 mt-4">
-      <div class="card bg-dark">
-        <div class="card-header">
-          <h4>Estudiantes</h4>
-        </div>
-        <div  class="card-body">
-          <!-- Messages -->
-          <div class="container"><div id="chat" class="row"></div>
+  <div class="card col-md-4 mt-4 mx-auto" id="nickWrap">
+    <div class="card-header text-center">
+      <h3 class="py-2">Nombre de Usuario</h3>
+    </div>
+    <p id="nickError"></p>
+    <div class="card-body">
+      <form id="nickForm">
+        <input type="text" id="nickname" class="form-control">
+        <input type="submit" class="btn btn-dark btn-block mt-2">
+      </form>
+    </div>
+  </div>
 
+  <div class="container" id="contentWrap">
+    <div class="row">
+      <div class="col-md-5 mt-4 text-white">
+        <div class="card bg-dark">
+          <div class="card-header">
+            <h4>Estudiantes</h4>
           </div>
+          <div  class="card-body messageBox" >
+            <!-- Messages -->
+            <div class="container" id="chat"></div>
+
+            </div>
+          </div>
+          <form id="message-form" class="bg-dark card-footer">
+            <div class="input-group">
+              <input type="text" id="message" class="form-control">
+              <div class="input-group-append"><i id="image-send" class="fa fa-image btn btn-dark"></i></div>
+              <div class="input-group-append"><button type="submit" class="btn btn-primary"><i class="fa fa-paper-plane"></i></button></div>
+            </div>
+          </form>
         </div>
-        <form id="message-form" class="card-footer">
-          <div class="input-group">
-            <input type="text" id="message" class="form-control">
-            <div class="input-group-append"><i id="image-send" class="fa fa-image btn btn-dark"></i></div>
-            <div class="input-group-append"><input type="submit" class="btn btn-primary"></div>
+        <div class="card col-md-4 offset-md-1 mt-4">
+            <div class="card-header">
+              <h4>Coders conectados</h4>
+            </div>
+            <div class="card-body">
+              <div id="usernames">
+      
+              </div>
+            </div>
           </div>
-        </form>
       </div>
     </div>
   </div>
+  
 
   <script src="/socket.io/socket.io.js"></script>
   <script src="/js/main.js"></script>

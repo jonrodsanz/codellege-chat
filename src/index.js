@@ -7,7 +7,6 @@ const app      = express() // Instancia de express
 // settings
 app.set('port', process.env.PORT || 4000)
 
-
 const server = http.createServer(app)
 const io     = socketio.listen(server)
 
