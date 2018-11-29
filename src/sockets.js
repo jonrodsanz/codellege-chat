@@ -17,7 +17,7 @@ module.exports = function(io){
     });
 
     socket.on('new user', (data, callback) => {
-      if(!nicknames.includes(data)){
+      if(!nicknames.includes(data) && data !== ""){
         callback(true)
         socket.nickname = data
         nicknames.push(socket.nickname)

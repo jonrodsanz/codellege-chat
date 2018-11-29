@@ -14,7 +14,7 @@ $(function () {
   let $imageBtn      = $("#image-send")
   // obtaining DOM elements from the nickname form
   const $nickForm  = $("#nickForm")
-  const $nickError = $("#nickError")
+  // const $nickError = $("#nickError")
   const $nickname  = $("#nickname")
 
   $nickForm.submit((e) => {
@@ -24,11 +24,27 @@ $(function () {
         $("#nickWrap").hide()
         $("#contentWrap").show()
       } else {
-        alert("Nombre de usuario ocupado")
+        alert("Elija otro nombre de usuario")
       }
     })
   })
 
+  // Leer artículo de medium para modificar variables de CSS
+  // Reestructurar JS y CSS
+  
+  const root = document.documentElement;
+
+  $("#color-1").click(() => {
+    root.style.setProperty("--msg-color","steelblue")
+    $("#users-box").css("background","var(--msg-color)")
+    $("#users-box").css("color","white")
+  })
+
+  $("#color-2").click(() => {
+    root.style.setProperty("--msg-color","#dc3545")
+    $("#users-box").css("background","var(--msg-color)")
+    $("#users-box").css("color","white")
+  })
   // operationals variables
   let sentMessage = $messageBox.val();
   let flag = false;
@@ -62,7 +78,7 @@ $(function () {
   socket.on("new message", (data) => {
     // notificationSound[1].play()
     $chat.append(
-      `<div class="row">
+      `<div class="row my-1">
         <div style="padding: 0" class="col-lg-1 col-1">
           <img class="avatar" src="http://assets.stickpng.com/thumbs/588359a32c9eb99faafea8bc.png" width="100%" />
         </div>
@@ -75,13 +91,13 @@ $(function () {
 
   socket.on("user join", (nickname) => {
     $chat.append(`
-    <div class="row"><div class="col text-center my-1"><em>${nickname} ingresó a la conversacion</em></div></div>
+    <div class="row"><div class="col text-center my-2"><em>${nickname} ingresó a la conversacion</em></div></div>
     `)
   })
 
   socket.on("user left", (nickname) => {
     $chat.append(`
-    <div class="row"><div class="col text-center my-1"><em>${nickname} abandonó la conversacion</em></div></div>
+    <div class="row"><div class="col text-center my-2"><em>${nickname} abandonó la conversacion</em></div></div>
     `)
   })
 })

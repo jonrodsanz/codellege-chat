@@ -1,3 +1,10 @@
+:root {
+  --msg-color: steelblue;
+}
+
+button, input[type="submit"]{
+  outline: none !important;
+}
 body {
   /* background: #e52d27;  /* fallback for old browsers */
   /* background: -webkit-linear-gradient(to right, #b31217, #e52d27);  /* Chrome 10-25, Safari 5.1-6 */
@@ -19,12 +26,13 @@ body {
   overflow-y: scroll;
 }
 
-.single-message {
-  background: steelblue;
+p.single-message {
+  background: var(--msg-color);
   /* background-color: firebrick; */
   padding: 10px;
   border-radius: 10px;
   display: inline-block;
+  margin: 0;
 }
 
 /* width */
@@ -58,4 +66,32 @@ p.single-message > img {
 
 p {
   font-size: 15px;
+}
+
+button[id^="color-"] {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+}
+
+button#color-1{
+  background-color: steelblue;
+}
+
+button#color-2{
+  background-color: #dc3545;
+}
+
+.card-header > * {
+  display: inline-block;
+}
+
+#colors {
+  float: right;
+}
+
+.red-background {
+  background: firebrick !important;
 }
