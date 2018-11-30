@@ -10,6 +10,10 @@ iframe {
   width: 100%;
 }
 
+#nickWrap {
+  margin-top: 14vh;
+}
+
 body {
   /* background: #e52d27;  /* fallback for old browsers */
   /* background: -webkit-linear-gradient(to right, #b31217, #e52d27);  /* Chrome 10-25, Safari 5.1-6 */
