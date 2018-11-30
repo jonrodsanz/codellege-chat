@@ -87,7 +87,7 @@ $(function () {
     // notificationSound[1].play()
     if(data.username == personalUsername){
       $chat.append(
-        `<div class="row my-1" style="text-align: right">
+        `<div class="row mb-1 mt-2" style="text-align: right">
           <div class="col-12">
             <p class="single-message" data-toggle="tooltip" data-placement="left" title="${moment().format('lll')}">${data.message}</p>
           </div>
@@ -109,6 +109,10 @@ $(function () {
         </div>`
       )
     }
+    // $chat.animate({
+    //   scrollTop: document.querySelectorAll(".single-message")[document.querySelectorAll(".single-message").length -1].offset().top
+    // }, 1000);
+    
   })
 
   socket.on("user join", (data) => {

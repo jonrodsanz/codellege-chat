@@ -1,5 +1,7 @@
 # Simple chat using Socket.io
 
+![Demo](/src/public/assets/demo-chat.png)
+
 ### Install
 To install the dependencies, run:
  ~~~
