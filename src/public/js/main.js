@@ -42,10 +42,12 @@ $(function () {
 
   $("#color-1").click(() => {
     root.style.setProperty("--msg-color","steelblue")
+    $("body").css("background-image", "url(https://i.pinimg.com/originals/e7/54/ac/e754ac49620ebfb36c4cb18fd1cdd512.jpg)")
   })
 
   $("#color-2").click(() => {
     root.style.setProperty("--msg-color","#dc3545")
+    $("body").css("background-image", "url(https://i.imgur.com/H0ZWBv8.jpg)")
   })
   // operationals variables
   let sentMessage = $messageBox.val();
@@ -111,7 +113,7 @@ $(function () {
 
   socket.on("user join", (data) => {
     $chat.append(`
-    <div class="row"><div class="col text-center my-2"><em>@${data} ingresó a la conversacion</em></div></div>
+    <div class="row"><div class="col text-center my-2"><em>${data} ingresó a la conversacion</em></div></div>
     `)
     $users.append(`
     <div class="row my-2" id="${data}">
