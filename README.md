@@ -19,4 +19,4 @@ npm start
     - socket.io
     - express
   - jquery
-  - boostrap
+  - bootstrap

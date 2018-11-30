@@ -31,5 +31,4 @@ module.exports = function(io){
       }
     });
   })
-  // Minuto 36:07 - Parte 01
 }

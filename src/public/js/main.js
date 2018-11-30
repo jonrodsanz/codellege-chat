@@ -42,7 +42,7 @@ $(function () {
 
   $("#color-1").click(() => {
     root.style.setProperty("--msg-color","steelblue")
-    $("body").css("background-image", "url(https://i.pinimg.com/originals/e7/54/ac/e754ac49620ebfb36c4cb18fd1cdd512.jpg)")
+    $("body").css("background-image", "url(https://linux.pictures/content/1-projects/200-solarized-dark-wallpaper/solarized-wallpaper-arch.png)")
   })
 
   $("#color-2").click(() => {
@@ -109,9 +109,6 @@ $(function () {
         </div>`
       )
     }
-    // $chat.animate({
-    //   scrollTop: document.querySelectorAll(".single-message")[document.querySelectorAll(".single-message").length -1].offset().top
-    // }, 1000);
     
   })
 
