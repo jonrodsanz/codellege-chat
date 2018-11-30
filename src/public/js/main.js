@@ -10,16 +10,22 @@ $(function () {
   const $messageForm = $("#message-form")
   const $messageBox  = $("#message")
   const $chat        = $("#chat")
-  const $users     = $("#usernames")
+  const $users       = $("#usernames")
   let $imageBtn      = $("#image-send")
   // obtaining DOM elements from the nickname form
   const $nickForm  = $("#nickForm")
   // const $nickError = $("#nickError")
   const $nickname  = $("#nickname")
 
+  var personalUsername;
+  var avatarSelection = $("input[name='avatar']");
+  var personalAvatar;
+
   $nickForm.submit((e) => {
     e.preventDefault();
-    socket.emit("new user", $nickname.val(), (data) => {
+    personalUsername = $nickname.val()
+    personalAvatar = avatarSelection.filter(":checked").val();
+    socket.emit("new user", personalUsername, (data) => {
       if(data){
         $("#nickWrap").hide()
         $("#contentWrap").show()
@@ -36,14 +42,10 @@ $(function () {
 
   $("#color-1").click(() => {
     root.style.setProperty("--msg-color","steelblue")
-    // $("#users-box").css("background","var(--msg-color)")
-    // $("#users-box").css("color","white")
   })
 
   $("#color-2").click(() => {
     root.style.setProperty("--msg-color","#dc3545")
-    // $("#users-box").css("background","var(--msg-color)")
-    // $("#users-box").css("color","white")
   })
   // operationals variables
   let sentMessage = $messageBox.val();
@@ -59,7 +61,10 @@ $(function () {
       else {
         sentMessage = $messageBox.val();
       }
-      socket.emit("send message", sentMessage)
+      socket.emit("send message", {
+        message: sentMessage,
+        avatar: personalAvatar
+      })
       $messageBox.val("")
       // notificationSound[1].play()
     }
@@ -74,30 +79,53 @@ $(function () {
       $imageBtn.removeClass("btn-success").addClass("btn-dark")
     }
   })
+   
 
   socket.on("new message", (data) => {
     // notificationSound[1].play()
-    $chat.append(
-      `<div class="row my-1">
-        <div style="padding: 0" class="col-lg-1 col-1">
-          <img class="avatar" src="http://assets.stickpng.com/thumbs/588359a32c9eb99faafea8bc.png" width="100%" />
-        </div>
-        <div class="col-lg-11 col-11">
-          <p class="single-message">${data}</p>
-        </div>
-      </div>`
-    )
+    if(data.username == personalUsername){
+      $chat.append(
+        `<div class="row my-1" style="text-align: right">
+          <div class="col-12">
+            <p class="single-message" data-toggle="tooltip" data-placement="left" title="${moment().format('lll')}">${data.message}</p>
+          </div>
+        </div>`
+      )
+      // <div style="padding: 0" class="col-lg-1 col-1">
+      //       <img class="avatar" src="http://assets.stickpng.com/thumbs/588359a32c9eb99faafea8bc.png" width="100%" />
+      //     </div>
+    } else{
+      $chat.append(
+        `<div class="row my-1">
+          <div style="padding: 0" class="col-lg-1 col-1">
+            <img class="avatar" src="${data.avatar ? data.avatar: 'http://assets.stickpng.com/thumbs/588359a32c9eb99faafea8bc.png'}" width="100%" />
+          </div>
+          <div class="col-lg-11 col-11">
+            <em class="d-block" style="font-size: 11px">${data.username}</em>
+            <p class="single-message" data-toggle="tooltip" data-placement="left" title="${moment().format('lll')}">${data.message}</p>
+          </div>
+        </div>`
+      )
+    }
   })
 
-  socket.on("user join", (nickname) => {
+  socket.on("user join", (data) => {
     $chat.append(`
-    <div class="row"><div class="col text-center my-2"><em>${nickname} ingresó a la conversacion</em></div></div>
+    <div class="row"><div class="col text-center my-2"><em>@${data} ingresó a la conversacion</em></div></div>
+    `)
+    $users.append(`
+    <div class="row my-2" id="${data}">
+      <em>${data}</em>
+    </div>
     `)
   })
 
   socket.on("user left", (nickname) => {
-    $chat.append(`
-    <div class="row"><div class="col text-center my-2"><em>${nickname} abandonó la conversacion</em></div></div>
-    `)
+    if(nickname !== null){
+      $chat.append(`
+      <div class="row"><div class="col text-center my-2"><em>${nickname} abandonó la conversacion</em></div></div>
+      `)
+      $(`#${nickname}`).remove();
+    }
   })
 })

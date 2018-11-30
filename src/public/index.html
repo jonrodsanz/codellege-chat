@@ -32,16 +32,18 @@
       <form id="nickForm">
         <input type="text" id="nickname" class="form-control mb-3">
         <input type="submit" class="btn btn-dark btn-block">
-      </form>
-      <h4 class="my-3 mt-4">Avatar</h4>
-      <form id="avatar-selection">
-        <input type="radio" name="avatar" id="avatar--bob-esponja">
+        <h4 class="my-3 mt-4">Avatar</h4>
+        <input type="radio" name="avatar" value="https://i.kym-cdn.com/photos/images/facebook/001/255/479/85b.png" id="avatar--bob-esponja">
         <label for="avatar--bob-esponja"><img height="40px" src="https://i.kym-cdn.com/photos/images/facebook/001/255/479/85b.png" alt=""></label>
-        <input type="radio" name="avatar" id="avatar--knuckles">
+        <input type="radio" name="avatar" value="https://i.kym-cdn.com/photos/images/newsfeed/001/337/786/426.png" id="avatar--knuckles">
         <label for="avatar--knuckles"><img height="40px" src="https://i.kym-cdn.com/photos/images/newsfeed/001/337/786/426.png" alt=""></label>
-        <input type="radio" name="avatar" id="avatar--mrbean">
+        <input type="radio" name="avatar" value="https://orig00.deviantart.net/87d8/f/2012/208/e/2/meme_mr__bean_png_by_mfsyrcm-d58vvez.png" id="avatar--mrbean">
         <label for="avatar--mrbean"><img height="40px" src="https://orig00.deviantart.net/87d8/f/2012/208/e/2/meme_mr__bean_png_by_mfsyrcm-d58vvez.png" alt=""></label>
+
+
       </form>
+      
+     
     </div>
   </div>
 
@@ -50,7 +52,7 @@
       <div class="col-md-5 mt-4 text-white">
         <div class="card bg-dark">
           <div class="card-header">
-            <h4>Estudiantes</h4>
+            <h4>&ltCodechat /&gt</h4>
             <div id="colors">
               <button id="color-1"></button>
               <button id="color-2"></button>
@@ -70,7 +72,8 @@
             </div>
           </form>
         </div>
-        <div class="card col-md-3 offset-md-1 mt-4" id="users-box">
+        <!-- offset-md-1 -->
+        <div class="card col-md-3 mt-4" id="users-box">
             <div class="card-header">
               <h4>Conectados</h4>
             </div>
@@ -80,11 +83,13 @@
               </div>
             </div>
           </div>
+                <!-- SPOTIFY -->
+        <iframe class="col-md-4 mt-4" style="height: 80vh" src="https://open.spotify.com/embed/album/00jalpLLeWNB3mdvN4DipA" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
       </div>
     </div>
   </div>
 
-
+  <script src="https://momentjs.com/downloads/moment-with-locales.min.js"></script>
   <script src="/socket.io/socket.io.js"></script>
   <script src="/js/main.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>

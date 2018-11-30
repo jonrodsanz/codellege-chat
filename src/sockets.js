@@ -7,8 +7,12 @@ module.exports = function(io){
     // console.log("A user connected")
     socket.on("send message", (data) => {
       // To all the clients
-      data = emoji.emojify(data)
-      io.sockets.emit("new message", data)
+      message = emoji.emojify(data.message)
+      io.sockets.emit("new message", {
+        message: message,
+        username: socket.nickname,
+        avatar: data.avatar
+      })
     })
 
     socket.on('disconnect', function(){
