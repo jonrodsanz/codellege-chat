@@ -2,41 +2,15 @@ function random(min, max) {
   return Math.floor(Math.random()*((max+1) - min) + min);
 }
 
-$(function () {
+// $(function () {
   const socket = io();
 
-  const notificationSound = [new Audio("../assets/audio/roblox.mp3"), new Audio("../assets/audio/minecraft.mp3")];
   // obtaining DOM elements from the interface
   const $messageForm = $("#message-form")
   const $messageBox  = $("#message")
   const $chat        = $("#chat")
   const $users       = $("#usernames")
-  let $imageBtn      = $("#image-send")
-  // obtaining DOM elements from the nickname form
-  const $nickForm  = $("#nickForm")
-  // const $nickError = $("#nickError")
-  const $nickname  = $("#nickname")
-
-  var personalUsername;
-  var avatarSelection = $("input[name='avatar']");
-  var personalAvatar;
-
-  $nickForm.submit((e) => {
-    e.preventDefault();
-    personalUsername = $nickname.val()
-    personalAvatar = avatarSelection.filter(":checked").val();
-    socket.emit("new user", personalUsername, (data) => {
-      if(data){
-        $("#nickWrap").hide()
-        $("#contentWrap").show()
-      } else {
-        alert("Elija otro nombre de usuario")
-      }
-    })
-  })
-
-  // Leer artículo de medium para modificar variables de CSS
-  // Reestructurar JS y CSS
+  let $imageBtn      = $("#image-send")  
   
   const root = document.documentElement;
 
@@ -49,6 +23,7 @@ $(function () {
     root.style.setProperty("--msg-color","#dc3545")
     $("body").css("background-image", "url(https://i.imgur.com/H0ZWBv8.jpg)")
   })
+
   // operationals variables
   let sentMessage = $messageBox.val();
   let flag = false;
@@ -64,11 +39,9 @@ $(function () {
         sentMessage = $messageBox.val();
       }
       socket.emit("send message", {
-        message: sentMessage,
-        avatar: personalAvatar
+        message: sentMessage
       })
       $messageBox.val("")
-      // notificationSound[1].play()
     }
   })
 
@@ -84,19 +57,15 @@ $(function () {
    
 
   socket.on("new message", (data) => {
-    // notificationSound[1].play()
-    if(data.username == personalUsername){
-      $chat.append(
-        `<div class="row mb-1 mt-2" style="text-align: right">
-          <div class="col-12">
-            <p class="single-message" data-toggle="tooltip" data-placement="left" title="${moment().format('lll')}">${data.message}</p>
-          </div>
-        </div>`
-      )
-      // <div style="padding: 0" class="col-lg-1 col-1">
-      //       <img class="avatar" src="http://assets.stickpng.com/thumbs/588359a32c9eb99faafea8bc.png" width="100%" />
-      //     </div>
-    } else{
+    // if(data.username == personalUsername){
+    //   $chat.append(
+    //     `<div class="row mb-1 mt-2" style="text-align: right">
+    //       <div class="col-12">
+    //         <p class="single-message" data-toggle="tooltip" data-placement="left" title="${moment().format('lll')}">${data.message}</p>
+    //       </div>
+    //     </div>`
+    //   )
+    // } else{
       $chat.append(
         `<div class="row my-1">
           <div style="padding: 0" class="col-lg-1 col-1">
@@ -108,7 +77,7 @@ $(function () {
           </div>
         </div>`
       )
-    }
+    // }
     
   })
 
@@ -131,4 +100,4 @@ $(function () {
       $(`#${nickname}`).remove();
     }
   })
-})
+// })

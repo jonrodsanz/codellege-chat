@@ -1,0 +1,29 @@
+body {
+  background-image: url('../assets/wallpapers/register_background-4.jpg');
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+#profilePicture {
+  width: 100px;
+}
+
+#registerCard {
+  opacity: 0.95;
+  border-radius: 35px;
+  padding: 10px;
+}
+
+#registerForm__submit {
+  padding: 10px;
+  background-color: #073045;
+  border-color: #073045;
+  outline-color:#073045;
+}
+
+#registerForm__submit:hover {
+  background-color: #062636;
+}

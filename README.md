@@ -15,8 +15,12 @@ npm start
  ~~~
 
 ### Dependencies:
-  - nodejs:
-    - socket.io
-    - express
-  - jquery
-  - bootstrap
+  - Node:
+    - Socket.io
+    - Express
+    - Body-Parser
+    - Mongoose
+    - Node-emoji
+  - jQuery
+  - Pug
+  - Bootstrap 4
