@@ -3,6 +3,7 @@ function scrollBotom() {
     scrollTop: $('#messageBox')[0].scrollHeight}, "slow");
 }
 
+$(document).ready(scrollBotom());
 
 // obtaining DOM elements from the interface
 const $messageForm = $("#message-form");
@@ -30,7 +31,7 @@ socket.on('new message', (data) => {
         <div class="col-1" style="padding: 0">
           <img class="rounded-circle avatar" src="${data.avatar}">
         </div>
-        <div class="col-11">
+        <div class="col-10">
           <em class="d-block" style="font-size: 11px">@${data.username}</em>
           <p class="single-message" data-toggle="tooltip" data-placement="left" title="${moment().format('lll')}">${data.message}</p>
         </div>
@@ -38,8 +39,9 @@ socket.on('new message', (data) => {
     `)
   } else if(data.username == socket.username) {
     $chat.append(`
-      <div class="row my-1" id="received-msg-${data.username}"> 
-        <div class="col-11">
+      <div class="row my-2" id="received-msg-${data.username}"> 
+        <div class="col-1"></div>
+        <div class="col-10">
           <p style="float: right" class="single-message" data-toggle="tooltip" data-placement="right" title="${moment().format('lll')}">${data.message}</p>
         </div>
         <div class="col-1" style="padding: 0">
@@ -64,3 +66,11 @@ $messageForm.submit( function(event) {
   $messageBox.val("");
   scrollBotom();
 });
+
+$(`.${socket.username}_msg`).css("float", "right");
+$(`.${socket.username}_msg`).css("background-color", "#073045")
+$(`.${socket.username}_img`).css("order", "3");
+$(`.${socket.username}_wrapper`).css("order", "2");
+$(`.${socket.username}_oculted`).css("order", "1");
+$(`.${socket.username}_row`).removeClass("mb-3");
+$(`.${socket.username}_name`).remove()

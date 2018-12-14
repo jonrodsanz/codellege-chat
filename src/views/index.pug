@@ -30,7 +30,7 @@ html(lang='es')
           .card-body
             //- #usernames
             each user in users
-              .row.my-1
+              .row.my-1.user-github(id=`${user.username}`, style="cursor: pointer")
                 .col-2(style="padding: 0")
                   img(src=`${user.avatar}`, style="width: 100%").rounded-circle.d-inline-block
                 .col-10
@@ -43,6 +43,16 @@ html(lang='es')
             .card-body.messageBox#messageBox
               // Messages
               #chat.container
+                each message in messages
+                  .row.my-2.mb-3(class=`${message.username}_row`)
+                    .col-1(style="padding: 0", class=`${message.username}_img`)
+                      img.rounded-circle.avatar(src=`${message.avatar}`)
+                    .col-10(class=`${message.username}_wrapper`)
+                      em.d-block(style="font-size: 11px", class=`${message.username}_name`)= `@${message.username}`
+                      p(class=`${message.username}_msg`).single-message= message.message
+                    .col-1(class=`${message.username}_oculted`)
+                hr
+                      //- (data-toggle="tooltip",data-placement="left",title="${moment().format('lll')}")
           form#message-form.bg-dark.card-footer
             .input-group
               input#message.form-control(type='text',autocomplete="off", style="outline: none; border: none")
