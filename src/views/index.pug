@@ -28,7 +28,13 @@ html(lang='es')
             div.d-inline-block(style="width: 13px; height: 13px; margin-right: 10px; border-radius: 50%; background-color: green")
             h6.d-inline-block Devs
           .card-body
-            #usernames
+            //- #usernames
+            each user in users
+              .row.my-1
+                .col-2(style="padding: 0")
+                  img(src=`${user.avatar}`, style="width: 100%").rounded-circle.d-inline-block
+                .col-10
+                  p.d-inline-block= user.username
         .col-md-6.text-white
           .card.bg-dark
             .card-header

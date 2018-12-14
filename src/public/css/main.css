@@ -76,3 +76,10 @@ p {
 .red-background {
   background: #dc3545 !important;
 }
+
+@media only screen and (max-width : 770px) {
+  #users-box {
+    display: none;
+  }
+}
+  

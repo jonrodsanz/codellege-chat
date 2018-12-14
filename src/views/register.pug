@@ -24,7 +24,8 @@ html(lang='es')
         .card-body
           form#registerForm(action="/api/users", method="POST", autocomplete="off")
             input#registerForm__username.form-control.mb-3(type='text', placeholder="Github's username", name='username')
-            input#registerForm__email.form-control.mb-3(type='email', placeholder='E-mail', name='email')  
+            input#registerForm__email.form-control.mb-3(type='email', placeholder='E-mail', name='email') 
+            input#registerForm__avatar(name="avatar", hidden) 
             .form-group
               select#registerForm__devLanguage.form-control(required, name="technology")
                 option(disabled) Your Favorite Language...

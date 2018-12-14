@@ -1,9 +1,12 @@
 module.exports = function(io){
   let Message = require('./models/message')
+  let User = require('./models/userModel')
   // var emoji = require('node-emoji')
   
   io.on('connection', socket => {
-
+    // Message.find({}, (err, messages) => {
+    //   console.log(messages)
+    // })
     socket.on('send message', (data) => {
       let message = new Message(data);
       message.save(function (err) { 
@@ -28,8 +31,9 @@ module.exports = function(io){
     // })
 
     // socket.on('disconnect', function(){
-    //   nicknames.splice(nicknames.indexOf(socket.nickname))
-    //   io.sockets.emit("user left", socket.nickname)
+    //   User.findOneAndUpdate({username: socket.username}, {connected: false}, (err) => {
+    //     if (err) console.log(err);
+    //   })
     // });
 
     // socket.on('new user', (data, callback) => {

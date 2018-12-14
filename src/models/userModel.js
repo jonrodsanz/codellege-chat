@@ -7,8 +7,7 @@ let userSchema = new Schema({
     required: true
   },
   avatar: {
-    type: String,
-    default: 'https://png2.kisspng.com/20180402/uzq/kisspng-computer-icons-astronaut-outer-space-astronaut-5ac1d584aecd37.613204711522652548716.png'
+    type: String
   },
   email: {
     type: String

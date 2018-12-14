@@ -16,6 +16,7 @@ $("#registerForm__devLanguage").click(function( event ) {
   let $username = $("#registerForm__username").val();
   $.get( `https://api.github.com/users/${$username}`, function( data ) {
     $("#profilePicture").attr('src', data.avatar_url);
+    $("#registerForm__avatar").val(data.avatar_url);
     user.avatar = data.avatar_url;
   });
 })
