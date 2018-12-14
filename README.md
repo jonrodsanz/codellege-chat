@@ -1,6 +1,6 @@
-# Simple chat using Socket.io
+# Dev chat using Socket.io
 
-![Demo](/src/public/assets/demo-chat.png)
+![Demo](/src/public/assets/DemoV2.png)
 
 ### Install
 To install the dependencies, run:
@@ -24,3 +24,4 @@ npm start
   - jQuery
   - Pug
   - Bootstrap 4
+  - Vue
