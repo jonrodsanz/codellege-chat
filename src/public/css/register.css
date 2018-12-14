@@ -1,6 +1,13 @@
 body {
-  background-image: url('../assets/wallpapers/register_background-4.jpg');
+  background-image: url('../assets/wallpapers/119.gif');
+  background-color: rgb(38, 37, 39);
   background-size: cover;
+  background-position: center;
+  background-blend-mode: soft-light;
+  font-family: 'roboto';
+}
+
+#wrapper {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -12,7 +19,7 @@ body {
 }
 
 #registerCard {
-  opacity: 0.95;
+  opacity: 0.9;
   border-radius: 35px;
   padding: 10px;
 }

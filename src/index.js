@@ -6,12 +6,13 @@ const socketio = require('socket.io'),
  morgan = require('morgan'),
  mongoose = require('mongoose');
 
+const CONFIG = require('../config/config')
  // Express instance
 var app = express();
 
 //mongoose configuration
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://localhost/chat', { useNewUrlParser: false}, (err, db) => {
+mongoose.connect(`mongodb://${CONFIG.mlab.user}:${CONFIG.mlab.password}@ds157529.mlab.com:57529/dev-chat`, (err, db) => {
   if (err) throw err;
   console.log(`DB connected (${db.name})`);
 });

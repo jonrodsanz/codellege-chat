@@ -8,7 +8,13 @@ let userSchema = new Schema({
   },
   avatar: {
     type: String,
-    default: 'https://b.kisscc0.com/20180717/yse/kisscc0-guy-fawkes-mask-anonymous-anonymity-image-editing-anonymous-mask-5b4e56e6b1fb63.164184741531860710729.jpg'
+    default: 'https://png2.kisspng.com/20180402/uzq/kisspng-computer-icons-astronaut-outer-space-astronaut-5ac1d584aecd37.613204711522652548716.png'
+  },
+  email: {
+    type: String
+  },
+  technology: {
+    type: String
   },
   connected: {
     type: Boolean,

@@ -1,38 +1,34 @@
 :root {
-  --msg-color: steelblue; 
+  --msg-color: #db2c3d;
+}
+
+* {
+  font-family: 'roboto';
 }
 
 button, input[type="submit"]{
   outline: none !important;
 }
 
-iframe {
+.avatar {
   width: 100%;
 }
 
-#nickWrap {
-  margin-top: 14vh;
-}
-
 body {
-  background-image: url(https://linux.pictures/content/1-projects/200-solarized-dark-wallpaper/solarized-wallpaper-arch.png);
-  /* Space background */
-  /* https://i.imgur.com/H0ZWBv8.jpg */
+  background-image: url('../assets/wallpapers/119.gif');
   background-size: cover;
 }
 
-#nickWrap {
-  border-radius: 15px;
-}
 
 .messageBox {
-  height: 60vh;
+  height: 65vh;
   overflow-y: scroll;
+  background-position: center;
+  background-size: cover;
 }
 
 p.single-message {
   background: var(--msg-color);
-  /* background-color: firebrick; */
   padding: 10px;
   border-radius: 10px;
   display: inline-block;
@@ -40,7 +36,7 @@ p.single-message {
 }
 
 #users-box {
-  background: var(--msg-color);
+  background: #073045;
   color: white;
 }
 
@@ -74,33 +70,9 @@ p.single-message > img {
 }
 
 p {
-  font-size: 15px;
-}
-
-button[id^="color-"] {
-  width: 25px;
-  height: 25px;
-  border-radius: 50%;
-  border: none;
-  cursor: pointer;
-}
-
-button#color-1{
-  background-color: steelblue;
-}
-
-button#color-2{
-  background-color: #dc3545;
-}
-
-.card-header > * {
-  display: inline-block;
-}
-
-#colors {
-  float: right;
+  font-size: 14.5px;
 }
 
 .red-background {
-  background: firebrick !important;
+  background: #dc3545 !important;
 }

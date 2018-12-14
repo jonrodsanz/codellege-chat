@@ -27,6 +27,7 @@ module.exports.delete_all_users = async function (req, res) {
 
 // POST api/users
 module.exports.create_a_user = function (req, res) {
+  console.log(req.body);
   var newUser = new User(req.body);
   newUser.save(function(err, user){
     if(err)

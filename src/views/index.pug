@@ -5,6 +5,7 @@ html(lang='es')
     meta(name='viewport', content='width=device-width, initial-scale=1.0')
     meta(http-equiv='X-UA-Compatible', content='ie=edge')
     link(rel='icon', href='../assets/general/favicon.png')
+    link(href="https://fonts.googleapis.com/css?family=Roboto", rel="stylesheet")
     // jQuery
     script(src='https://code.jquery.com/jquery-3.3.1.min.js', integrity='sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=', crossorigin='anonymous')
     // Boostrap 4
@@ -15,36 +16,49 @@ html(lang='es')
     link(rel='stylesheet', href='./css/main.css')
     title Dev Chat
   body
+    nav#navbar.navbar.navbar-dark.bg-dark.text-white.d-block(style="height: 8vh")
+      div(style="float: right;")  
+        img.rounded-circle(style="height: 6vh", :src="user.profilePicture")   
+        h6.d-inline.mx-3 @{{user.username}} 
     #contentWrap.container
-      .row
-        .col-md-5.mt-4.text-white
+      .row.mt-4
+        // offset-md-1
+        #users-box.card.col-md-3
+          .card-header
+            div.d-inline-block(style="width: 13px; height: 13px; margin-right: 10px; border-radius: 50%; background-color: green")
+            h6.d-inline-block Devs
+          .card-body
+            #usernames
+        .col-md-6.text-white
           .card.bg-dark
             .card-header
-              h5 &ltCodechat /&gt
-              #colors
-                button#color-1
-                button#color-2
-            .card-body.messageBox
+              img(src="https://png.pngtree.com/svg/20161220/robot_378409.png", style="width: 20px; margin-right: 10px")
+              h6.d-inline-block Friday's Topic: IA in Nodejs
+            .card-body.messageBox#messageBox
               // Messages
               #chat.container
           form#message-form.bg-dark.card-footer
             .input-group
-              input#message.form-control(type='text')
+              input#message.form-control(type='text',autocomplete="off", style="outline: none; border: none")
+              //- .input-group-append
+              //-   i#image-send.fa.fa-image.btn.btn-light
               .input-group-append
-                i#image-send.fa.fa-image.btn.btn-dark
-              .input-group-append
-                button.btn.btn-primary(type='submit')
+                button.btn(type='submit', style="background: #073045; color: white")
                   i.fa.fa-paper-plane
-        // offset-md-1
-        #users-box.card.col-md-3.mt-4
-          .card-header
-            h5 Conectados
-          .card-body
-            #usernames
     script(src='https://momentjs.com/downloads/moment-with-locales.min.js')
     script(src='/socket.io/socket.io.js')
     script(src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js")
     script(src='/js/chat.js')
+    script.
+      var navbar = new Vue({
+        el: '#navbar',
+        data: {
+          user: {
+            username: socket.username,
+            profilePicture: socket.avatar
+          }
+        }
+      })
     
     script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js', integrity='sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q', crossorigin='anonymous')
     script(src='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js', integrity='sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl', crossorigin='anonymous')

@@ -3,3 +3,4 @@ config/
 package-lock.json
 src/public/assets/audio/seven-seas.mp3
 Wallpapers.txt
+src/public/assets/audio/videos/
