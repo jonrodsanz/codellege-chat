@@ -15,13 +15,14 @@ npm start
  ~~~
 
 ### Dependencies:
-  - Node:
+  - Node (Server-side):
     - Socket.io
     - Express
     - Body-Parser
     - Mongoose
     - Node-emoji
-  - jQuery
-  - Pug
-  - Bootstrap 4
-  - Vue
+  - (Client-side):
+    - jQuery
+    - Pug
+    - Bootstrap 4
+    - Vue

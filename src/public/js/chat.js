@@ -90,7 +90,7 @@ $(".user-github").click(function(event) {
     data.forEach((repo) => {
       repos.append(`
         <div class="mb-2">
-          <a href='${repo.html_url}' target="_blank">${repo.name} (${repo.language})</a>
+          <a href='${repo.html_url}' target="_blank">${repo.name} (${repo.language ? repo.language: 'General'})</a>
           <em class="d-block">${repo.description ? repo.description:''}</em>
         </div>
       `)

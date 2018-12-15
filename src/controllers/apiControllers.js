@@ -29,9 +29,10 @@ module.exports.delete_all_users = async function (req, res) {
 module.exports.create_a_user = function (req, res) {
   console.log(req.body);
   var newUser = new User(req.body);
+  let room = req.body.technology;
   newUser.save(function(err, user){
     if(err)
       res.send(err);
-    res.redirect('../chat')
+    res.redirect(`../chat/${room}`)
   })
 }

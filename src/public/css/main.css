@@ -17,6 +17,7 @@ button, input[type="submit"]{
 body {
   background-image: url('../assets/wallpapers/119.gif');
   background-size: cover;
+  overflow: hidden;
 }
 
 .messageBox {
