@@ -42,7 +42,7 @@ socket.on('new message', (data) => {
       <div class="row my-2" id="received-msg-${data.username}"> 
         <div class="col-1"></div>
         <div class="col-10">
-          <p style="float: right" class="single-message" data-toggle="tooltip" data-placement="right" title="${moment().format('lll')}">${data.message}</p>
+          <p style="float: right" class="single-message blue-background" data-toggle="tooltip" data-placement="right" title="${moment().format('lll')}">${data.message}</p>
         </div>
         <div class="col-1" style="padding: 0">
           <img class="rounded-circle avatar" src="${data.avatar}">
@@ -74,3 +74,26 @@ $(`.${socket.username}_wrapper`).css("order", "2");
 $(`.${socket.username}_oculted`).css("order", "1");
 $(`.${socket.username}_row`).removeClass("mb-3");
 $(`.${socket.username}_name`).remove()
+
+
+let repos = $("#github-repos");
+let userGithub = $("#github-user");
+
+$(".user-github").click(function(event) {
+  repos.html('');
+  event.preventDefault();
+  let $selectedUser = $(event.target).attr('id');
+  $selectedUser = $selectedUser ? $selectedUser: socket.username;
+  console.log($selectedUser);
+  $.get(`https://api.github.com/users/${$selectedUser}/repos`, function( data ) {
+    userGithub.attr('src', data[0].owner.avatar_url)
+    data.forEach((repo) => {
+      repos.append(`
+        <div class="mb-2">
+          <a href='${repo.html_url}' target="_blank">${repo.name} (${repo.language})</a>
+          <em class="d-block">${repo.description ? repo.description:''}</em>
+        </div>
+      `)
+    })
+  });
+})

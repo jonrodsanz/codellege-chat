@@ -30,10 +30,10 @@ html(lang='es')
           .card-body
             //- #usernames
             each user in users
-              .row.my-1.user-github(id=`${user.username}`, style="cursor: pointer")
+              .row.my-1.mb-2.user-github(id=`${user.username}`, style="cursor: pointer")
                 .col-2(style="padding: 0")
                   img(src=`${user.avatar}`, style="width: 100%").rounded-circle.d-inline-block
-                .col-10
+                .col-10(id=`${user.username}`)
                   p.d-inline-block= user.username
         .col-md-6.text-white
           .card.bg-dark
@@ -61,6 +61,13 @@ html(lang='es')
               .input-group-append
                 button.btn(type='submit', style="background: #073045; color: white")
                   i.fa.fa-paper-plane
+        .col-md-3#github-box
+          .card.bg-light
+            .card-header
+              img#github-user.rounded-circle.d-block.mx-auto(src="https://assets-cdn.github.com/images/modules/logos_page/GitHub-Mark.png", style="width:35px; margin-right: 10px;")
+              //- h6.d-inline-block Github Repos
+            .card-body#github-repos
+
     script(src='https://momentjs.com/downloads/moment-with-locales.min.js')
     script(src='/socket.io/socket.io.js')
     script(src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js")

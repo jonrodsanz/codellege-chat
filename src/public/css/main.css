@@ -19,7 +19,6 @@ body {
   background-size: cover;
 }
 
-
 .messageBox {
   height: 65vh;
   overflow-y: scroll;
@@ -70,16 +69,28 @@ p.single-message > img {
 }
 
 p {
-  font-size: 14.5px;
+  font-size: 14px;
 }
 
 .red-background {
   background: #dc3545 !important;
 }
 
+.blue-background {
+  background: #073045 !important;
+}
+
 @media only screen and (max-width : 770px) {
-  #users-box {
+  #users-box, #github-box {
     display: none;
   }
 }
   
+#github-repos {
+  height: 73.5vh;
+  overflow-y: scroll;
+}
+
+#github-repos em{
+  font-size: 13px;
+}
