@@ -1,6 +1,6 @@
 # Dev chat using Socket.io
 
-![Demo](/src/public/assets/DemoV2.png)
+![Demo](/src/public/assets/Demo.png)
 
 ### Install
 To install the dependencies, run:
