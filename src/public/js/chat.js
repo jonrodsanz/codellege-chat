@@ -23,6 +23,7 @@ let user =  JSON.parse(localStorage.getItem('user'));
 let socket = io();
 socket.username = user.username;
 socket.avatar = user.avatar;
+socket.technology = user.technology;
 
 socket.on('new message', (data) => {
   if(data.username !== socket.username){
@@ -97,3 +98,11 @@ $(".user-github").click(function(event) {
     })
   });
 })
+
+let room = window.location.pathname.split('/')[window.location.pathname.split('/').length - 1];
+
+if(socket.technology !== room){
+  $("#msg-input").css('visibility', 'hidden')
+} else if (socket.technology === room){
+  $("#msg-input").css('visibility', 'true')
+}

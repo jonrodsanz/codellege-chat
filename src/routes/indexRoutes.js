@@ -25,7 +25,6 @@ router.get('/chat/:room', async (req, res) => {
     .catch((err) => console.log(err))
   await Message.find({})
     .then((msgs) => {
-      console.log(msgs);
       messages = msgs.filter((msg) => {
         // connectedUsers.forEach((connectedUser) => {
         //   console.log(connectedUser.username, msg.username, connectedUser.username == msg.username);

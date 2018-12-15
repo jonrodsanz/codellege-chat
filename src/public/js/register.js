@@ -5,6 +5,7 @@ $( "#registerForm" ).submit(function( event ) {
   if(confirmation){
     user.username = $("#registerForm__username").val();
     user.email = $("#registerForm__email").val();
+    user.technology = $("#registerForm__devLanguage").val();
     user.creationDate = moment().format('MMMM Do YYYY, h:mm:ss a'); // Ex: December 11th 2018, 12:42:43 am;
     localStorage.setItem('user', JSON.stringify(user));
   } else{
